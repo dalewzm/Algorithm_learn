@@ -42,3 +42,36 @@ public:
 		return head;
 	}
 };
+//Remove Duplicates from Sorted Array II
+//由链表改为数组，同样记录前后两个变量，给重复的变量允许两次机会
+//----------------------------------------------------------------------------------
+class Solution {
+public:
+	int removeDuplicates(int A[], int n) {
+		int *copy = new int[n];
+		if (A == NULL || n == 0)
+			return 0;
+		int max = 2;
+		int j = 1;
+		copy[0] = A[0];
+		for (int i = 0; i < n-1; ++i)
+		{
+			if (A[i] == A[i + 1])
+			{
+				max--;
+				if (max > 0)
+				{
+					copy[j++] = A[i + 1];					
+				}
+			}
+			else{
+				max = 2;
+				copy[j++] = A[i + 1];
+			}
+		}
+		for (int i = 0; i < j; ++i)
+			A[i] = copy[i];
+		delete[] copy;
+		return j;
+	}
+};

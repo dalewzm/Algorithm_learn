@@ -7,6 +7,11 @@ My submission for some problems of some OJ
 
 [leetCode 求职，基础+算法](http://oj.leetcode.com/problems/)
 
+[uva](http://uva.onlinejudge.org/)
+
+### uva
+###### 矩阵快速幂[10870](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=&problem=1811&mosmsg=Submission+received+with+ID+14200708)
+
 ### Wikioi
 #####  骑士周游[1219](http://www.wikioi.com/problem/1219/)
 	棋盘型dp，状态转移方程

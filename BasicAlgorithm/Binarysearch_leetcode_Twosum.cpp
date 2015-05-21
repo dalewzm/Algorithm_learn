@@ -1,5 +1,6 @@
 //time complexity is O(nlogn)
 //space complexity is O(n)
+//sort+二分
 #include<algorithm>
 using namespace std;
 

@@ -1,5 +1,6 @@
 //get a series of numbers inverve pairs
 //the inverse pairs differences between 2 permutation
+// num[i][j]=k, 代表从j到末尾比第i个数小的数的个数为k
 #include <cstdio>
 #include <memory.h>
 using namespace std;

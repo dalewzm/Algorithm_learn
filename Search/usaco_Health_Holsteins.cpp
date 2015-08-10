@@ -4,7 +4,9 @@ PROG: holstein
 LANG: C++
 */
 
-
+/*/-------------
+when try comnation, no need use visit arrary to avoid visiting again
+-------------/*/
 #include<cstdio>
 #include<vector>
 #include<iostream>
@@ -127,15 +129,9 @@ void solve()
 int main()
 {
     
-    
     init();
     solve();
     
     return 0;
 }
-
-
-
-
-
 

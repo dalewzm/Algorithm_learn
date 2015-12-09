@@ -1,0 +1,56 @@
+class Solution {
+public:
+	double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+		size_t m = nums1.size(), n= nums2.size();
+		if (m > n)
+			return findMedianSortedArrays(nums2, nums1);
+		int low = 0, high = m;
+		int  mid =0, j = (n + m + 1) / 2 - mid;
+		while (low <= high) {
+			mid = low + (high - low) / 2;
+			j = (n + m + 1)/2 - mid;
+			if ( j > 0 && mid < m &&nums2[j - 1] <= nums1[mid]) { //B[j-1]<=A[i];
+				if (mid > 0 &&j<n && nums1[mid - 1] <= nums2[j]) //A[i-1]<=B[j]
+				{
+					//find answer
+					break;
+				}
+				else {
+					high = mid-1;
+				}
+			}
+			else { //B[j-1]>A[i], i in right part
+				low = mid + 1;
+			}
+		}
+		double ans = 0.0;
+		if ((m + n) & 1) {
+			if (mid == 0)
+				ans = nums2[j - 1];
+			else if (j == 0)
+				ans = nums1[mid - 1];
+			else
+				ans = nums1[mid - 1] > nums2[j - 1] ? nums1[mid - 1] : nums2[j - 1];
+		}
+		else {
+
+			double leftMax =0;
+			if (mid == 0)
+				leftMax = nums2[j - 1];
+			else if (j == 0)
+				leftMax = nums1[mid - 1];
+			else
+				leftMax = nums1[mid - 1] > nums2[j - 1] ? nums1[mid - 1] : nums2[j - 1];
+			double rightMin = 0;
+			if (mid == m)
+				rightMin = nums2[j];
+			else if (j == n)
+				rightMin = nums1[mid];
+			else
+				rightMin = nums1[mid ] < nums2[j] ? nums1[mid] : nums2[j];
+			ans = (leftMax + rightMin) / 2;
+		}
+		return ans;
+
+	}
+};

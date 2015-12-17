@@ -1,5 +1,5 @@
 //n+m+d
-
+//uva 10870
 #include<cstdio>
 #include<vector>
 

@@ -1,0 +1,38 @@
+//rectangle diagonal line number is: 2,3,4,..n-1,n,n,...,n,n-1,....,2
+
+#include<iostream>
+
+using namespace std;
+
+long long int m,n;
+
+int main()
+{
+    while(cin>>m>>n && (m!=0 && n!=0)){
+        if( m < n){
+            long long int tmp = m;
+            m = n;
+            n = tmp;
+        }
+        long long int ans = 0;
+        long long int vmax,vmin;
+        ans = n*m*(m-1); //in same col
+        ans += m* n*(n-1);//n same row
+        long long int sum = 0;
+        long long int cnt = 0;
+        for(long long int i = 2; i<n; ++i)
+        {
+            sum += i*(i-1);
+            cnt++;
+        }
+        ans += sum*4;//2*2 2 for perimutation,2 for 2 direction
+        if( m== n)
+            ans += 2*n*(n-1);
+        else {
+           
+            ans += 2 * (m - n + 1)*n*(n - 1);
+        }
+        cout<<ans<<endl;
+    }
+}
+

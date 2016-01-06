@@ -1,3 +1,78 @@
+//---------------beat 91% cpp-------------------
+//
+//accelerate use bitmask instead of hash for position is valid
+//------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <map>
+//#include <iomanip>
+using namespace std;
+
+class Solution {
+public:
+    Solution():N(0){}
+    void genHash()
+    {
+        hashtab[0] = 0;
+        for(int i=0; i<32; ++i)
+            hashtab[1<<i] = i;
+    }
+    void dfs(int depth, vector<int>& path, int col ,int ld, int rd)
+    {
+        if(depth==N){
+            sum++;
+            vector<string> curAns;
+            for(vector<int>::iterator it=path.begin(); it!=path.end(); ++it)
+            {
+                string tmp(N,'.');
+                tmp[hashtab[*it]]='Q';
+                curAns.push_back(tmp);
+            }
+           
+            res.push_back(curAns);
+            return;
+        }
+        
+        int pos = ~( col | ld | rd) & upp;
+        int p =0;
+        int cur = 0;
+        while(pos){
+            p = pos & (-pos);
+            pos -= p;
+            //cur = 1<<(p-1);
+            path[depth]=p;
+            
+            dfs(depth+1, path,col+p, (ld+p)<<1,(rd+p)>>1 );
+           
+            
+        }
+        
+    }
+    vector<vector<string>> solveNQueens(int n) {
+        sum = 0;
+        N = n;
+        upp = (1<<n)-1;
+        res.resize(0);
+        res.clear();
+        vector<int> curPath(n,0);
+        genHash();
+        dfs(0,curPath,0,0,0);
+        cout<<sum<<endl;
+        return res;
+        
+    }
+    int N;
+    int sum;
+    int upp;
+    map<int,int> hashtab;
+    vector<int> visitCol;
+    vector<int> visitDig;
+    vector<vector<string> > res;
+};
+
+
 #include<string>
 using namespace std;
 class Solution {

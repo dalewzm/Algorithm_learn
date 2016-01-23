@@ -1,3 +1,4 @@
+//hash 
 #include<iostream>
 #include<string>
 #define maxn 10000

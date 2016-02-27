@@ -1,3 +1,4 @@
+//Binarysearch
 class Solution {
 public:
 	bool isAns(long long r, long long x)

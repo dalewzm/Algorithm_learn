@@ -6,6 +6,23 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+ //a better solution not need to copy elements
+ class Solution {
+public:
+     ListNode* reverseList(ListNode* head) {
+       if(!head)
+           return NULL;
+        ListNode *newhead = NULL,*next;
+        while(head){
+            next = head->next;
+            head->next = newhead;
+            newhead = head;
+            head = next;
+        }
+        return newhead;
+    }
+};
+ 
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {

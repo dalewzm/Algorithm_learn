@@ -1,3 +1,31 @@
+//a better solution not used extra space to get answer
+class Solution {
+public:
+ListNode* removeNthFromEnd(ListNode* head, int n) {
+        if(!head)
+            return NULL;
+        ListNode *faster = head,*slow = head;
+        while(n--) //to get delete pre node
+            faster = faster->next;
+        
+        if(faster == NULL) //delete node is first node
+        {
+            faster = head->next;
+            delete head;
+            return faster;
+        }
+        while(faster->next)//faster before null,slow will point to pre delete node
+        {
+            faster = faster->next;
+            slow = slow->next;
+        }
+       
+        faster = slow->next;//faster now is delete node
+        slow->next = faster->next;
+        delete faster;
+        return head;
+    }
+};
 /**
  * Definition for singly-linked list.
  * struct ListNode {

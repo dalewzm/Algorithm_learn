@@ -143,11 +143,6 @@ void dfs(int depth,int lastx,int lasty)
 				visit2[j] = 1;
 				if (depth == n / 2 - 1)
 				{
-					/*for (int k = 0; k < n; ++k)
-					{
-						cout << "[ " << k << ", " << pairs[k] << " ]" << "   ";
-					}
-					cout << endl;*/
 					if (judge())
 					{
 						ans++;

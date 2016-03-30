@@ -2,20 +2,21 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        int candiate = nums[0];
-        int times = 1;
+        int candiate;
+        int times = 0;
         int n = nums.size();
-        for(int i=1; i<n; ++i){
+        //从0开始遍历，更直观
+        for(int i=0; i<n; ++i){  
              if(times == 0){
                 candiate = nums[i];
                 times = 1;
-                continue;
-            } 
-            if( candiate == nums[i])
-                times++;
-            else
-                times--;
-           
+            }
+            else{
+                if( candiate == nums[i])
+                    times++;
+               else
+                    times--;
+            }
         }
         return candiate;
     }

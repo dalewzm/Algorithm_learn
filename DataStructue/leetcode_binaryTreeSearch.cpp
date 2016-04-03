@@ -48,7 +48,7 @@ public:
             res.push(curr->val);
             if(curr->left)
                 q.push(curr->left);
-            if(curr->left)
+            if(curr->right)
                 q.push(curr->right);
         }
         while(!res.empty())

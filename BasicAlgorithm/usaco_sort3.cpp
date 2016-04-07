@@ -25,14 +25,6 @@ int a[maxn];
 int sum[4];
 int pos[5];
 
-
-
-//#define fou cout
-//#define fin cin
-
-
-
-
 void init()
 {
     
@@ -63,7 +55,6 @@ inline void swap(int& a,int &b)
 
 void solve()
 {
-    
     int ct = 0;
     for(int i=0; i<n; ++i)
     {

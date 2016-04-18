@@ -9,28 +9,19 @@
  */
 class Solution {
 public:
-     bool isBalance(TreeNode* root,int &hei)
-    {
-        if(!root  ){
-            hei = 0;
-            return true;
-        }
-        int hl =0 ,hr =0;
-        if(!isBalance(root->left, hl))
-            return false;
-        if(!isBalance(root->right, hr))
-            return false;
-        hei = max(hl,hr)+1;
-        if(hl-hr<-1 || hl-hr>1)
-        {
-            return false;
-        }
-            
-        return true;
-    }
-  
-    bool isBalanced(TreeNode* root) {
-        int h= 0;
-        return isBalance(root,h);
-    }
+	int depth(TreeNode* root)
+	{
+		if (!root)
+			return 0;
+		int ld = depth(root->left);
+		if(ld == -1)
+		    return -1;
+		int rd = depth(root->right);
+		if (rd == -1 || ((ld - rd) > 1 || (ld-rd)<-1))
+			return -1;
+		return max(ld, rd) + 1;
+	}
+	bool isBalanced(TreeNode* root) {
+		return depth(root)!=-1;
+	}
 };

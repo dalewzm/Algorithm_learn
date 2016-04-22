@@ -5,6 +5,7 @@
 //
 const int maxn = 1000;
 int c1[maxn]; //c1 储存结果，c1[i]代表整数i的划分方案
+int c2[maxn];
 for(int i=0; i<=n; ++i) //代表初始化第一个括号内容
 {
   c1[i] = 1;

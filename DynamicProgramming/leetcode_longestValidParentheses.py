@@ -1,3 +1,4 @@
+## 扫描一遍，把配对信息放到栈中，配对信息可以合并则连起来
 class Pair(object):
 	def __init__(self, a, b):
 		self.l = a
